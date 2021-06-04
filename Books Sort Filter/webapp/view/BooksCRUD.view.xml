@@ -1,0 +1,37 @@
+<mvc:View
+    controllerName="org.ubb.books.controller.BooksCRUD"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	height="100%">
+<Page >
+
+<smartFilterBar:SmartFilterBar id="smartFilterBar"
+			entitySet="BooksSet">
+			<smartFilterBar:layoutData>
+				<FlexItemData shrinkFactor="0" />
+			</smartFilterBar:layoutData>
+		</smartFilterBar:SmartFilterBar>
+	
+	<VBox fitContainer="false" height="600px">
+	    
+		<smartTable:SmartTable entitySet="BooksSet" id="bookTable"
+			
+            smartFilterId="smartFilterBar" 
+			useVariantManagement="false" useTablePersonalisation="true" header="BooksSet"
+			showRowCount="true" 
+			enableAutoBinding="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true"
+            initiallyVisibleFields="Isbn,Author,Title,DatePublished,Language,TotalBooks,TotalBooksAv">
+			<smartTable:layoutData>
+				<FlexItemData growFactor="1" baseSize="0%" />
+			</smartTable:layoutData>
+
+		</smartTable:SmartTable>
+        
+        
+	</VBox>
+    </Page>
+</mvc:View>
